@@ -42,9 +42,9 @@ def makeReq():
     st.header("Request a Donation!")
     parent_name = st.text_input("What is your first and last name?")
     child_name = st.text_input("What is the child's first and last name?")
-    child_age = st.text_input("How old is the child the request is for?")
+    child_age = st.text_input("How old is the child?")
     toy_requested = st.text_input("What toy are you requesting?")
-    st.button("Submit Donation Request", on_click= None) 
+    st.button("Submit Donation Request", on_click= db_submit_request(parent_name, child_name, child_age, toy_requested)) 
         #the "on_click" will be the code to send to DB, 
         #create function and call here
         #need to add code to button to have it send the entered info to the MongoDB database
