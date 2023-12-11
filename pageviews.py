@@ -42,8 +42,8 @@ def makeReq():
     st.header("Request a Donation!")
     parent_name = st.text_input("What is your first and last name?")
     child_name = st.text_input("What is the child's first and last name?")
-    toy_requested = st.text_input("What toy are you requesting?")
     child_age = st.text_input("How old is the child the request is for?")
+    toy_requested = st.text_input("What toy are you requesting?")
     st.button("Submit Donation Request", on_click= None) 
         #the "on_click" will be the code to send to DB, 
         #create function and call here
