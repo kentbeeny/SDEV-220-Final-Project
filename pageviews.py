@@ -18,16 +18,21 @@ def home():
 
 def donations():
     st.header("Make a Donation!")
-    money_donation = st.text_input("Monetary Donation amount:")
-    toy_donation = st.text_input("Toy being donated:")
-    radioOptions = st.radio("Would you like a receipt?", options = ["No", "Yes"])
-    #if they select that they would like a receipt then get their name to put on it
-    if radioOptions == "Yes":
-         st.text_input("First Name")
-         st.text_input("Last Name")
+    st.text_input("Enter your Full Name OR your organization's name")
+    st.text_input("Monetary Donation amount:")
+    st.text_input("Toy being donated:")
+
+    #Will probably remove this option, unless we have time to implement it at the end
+    ###radioOptions = st.radio("Would you like a receipt?", options = ["No", "Yes"])
+    ####if they select that they would like a reciept then get their name to put on it
+    ###if radioOptions == "Yes":
+    ###     code to create a receipt will go here
+
+
     st.button("Submit Donation", on_click= None)
-    #the "on_click" will be the code to send to DB, 
-    #create function and call here
+    #the "on_click" will be the code to create an instance of the Sponsors Class
+    # and send it's attributes to the DB, 
+    #create function and call in the on_Click
 
 def db_submit_request(parent_name, child_name, toy_requested, child_age): #code for sending request info to db
     collection_name = dbname["Requested"]
@@ -66,6 +71,28 @@ def seeReq():
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-#Databases/classes:
-#"Toys" is a database of requested toys and the ages of the child asking for them
-#"Sponsors" is a database of
+#The Classes and their attributes:
+#Kids#
+# -name
+# -age
+# -toy
+
+#Sponsors#
+# -name
+# -money
+# -toy
+
+#Requestor#
+# -Name
+
+#The tables in the database
+#Requested#
+# -parent's name (from "Requestor" class)
+# -kids name (from "Kids" class)
+# -kids age (from "Kids" class)
+# -toy requested (from "Kids" class)
+
+#Donated#
+# -donator's name (from "Sponsors" class)
+# -money donated (from "sponsors" class) - can be null
+# -toy being donated (from "sponsors" class) - can be null 
