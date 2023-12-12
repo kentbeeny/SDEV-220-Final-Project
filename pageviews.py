@@ -64,8 +64,8 @@ def seeReq():
     items = dbname.Requested.find()
     items == list(items)
     # return items
-    for item in items:
-        st.write(f"{item}")
+    # for item in items:
+        # st.write(f"{item}")
     #Insert code to display all the toys requested and the ages of the kids requesting them
     #Maybe use selectbox?
     # ref https://docs.streamlit.io/library/api-reference/widgets/st.selectbox
