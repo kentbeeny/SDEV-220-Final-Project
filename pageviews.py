@@ -32,7 +32,8 @@ def donations():
     ###     code to create a receipt will go here
 
 
-    st.button("Submit Donation", on_click= db_submit_donation(donor_name, monetary_donation, toy_donation))
+    if st.button("Submit Donation"):
+        db_submit_donation(donor_name, monetary_donation, toy_donation)
     #the "on_click" will be the code to create an instance of the Sponsors Class
     # and send it's attributes to the DB, 
     #create function and call in the on_Click
@@ -52,7 +53,8 @@ def makeReq():
     child_name = st.text_input("What is the child's first and last name?")
     child_age = st.text_input("How old is the child?")
     toy_requested = st.text_input("What toy are you requesting?")
-    st.button("Submit Donation Request", on_click= db_submit_request(parent_name, child_name, child_age, toy_requested)) 
+    if st.button("Submit Donation Request"):
+        db_submit_request(parent_name, child_name, child_age, toy_requested)
         #the "on_click" will be the code to send to DB, 
         #create function and call here
         #need to add code to button to have it send the entered info to the MongoDB database
