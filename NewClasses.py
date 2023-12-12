@@ -23,31 +23,31 @@ for obj in list:
 print("")
 
 class Sponsors:
-    def __init__(self, moneyAmount, toy, fName, lName):
+    def __init__(self, moneyAmount, toy, flName):
         self.moneyAmount = moneyAmount
         self.toy = toy
-        self.fName = fName
-        self.lName = lName
+        self.flName = flName
+       
 
 
 # creating list
 list = []
 
 # appending instances to list
-list.append(Sponsors('moneyAmount','toy', 'fName', 'lName'))
+list.append(Sponsors('moneyAmount','toy', 'flName'))
 
 
 # Accessing object value using a for loop
 for obj in list:
-    print(obj.moneyAmount, obj.toy, obj.fName, obj.lName, sep=' ')
+    print(obj.moneyAmount, obj.toy, obj.flName, sep=' ')
 
 print("")
 
 
 class Requestor:
-    def __init__(self, fName, lName):
-        self.fName = fName
-        self.lName = lName
+    def __init__(self, flName):
+        self.flName = flName
+        
 
 
 
@@ -55,11 +55,11 @@ class Requestor:
 list = []
 
 # appending instances to list
-list.append(Requestor('fName', 'lName'))
+list.append(Requestor('flName'))
 
 
 # Accessing object value using a for loop
 for obj in list:
-    print(obj.fName, obj.lName, sep=' ')
+    print(obj.flName, sep=' ')
 
 print("")
