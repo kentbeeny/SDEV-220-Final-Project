@@ -1,6 +1,6 @@
 class toys:
     def __init__(self, name, age):
-        self.name = name
+        self.kidName = name
         self.age = age
 
 
