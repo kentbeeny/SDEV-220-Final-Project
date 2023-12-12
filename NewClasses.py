@@ -18,7 +18,7 @@ list.append(Kids('kidName','Stuffed Animals', 3))
 
 # Accessing object value using a for loop
 for obj in list:
-    print(obj.kidName, obj.toy ,obj.age, sep=' ')
+    print(obj.kidName, obj.toy, obj.age, sep=' ')
 
 print("")
 
