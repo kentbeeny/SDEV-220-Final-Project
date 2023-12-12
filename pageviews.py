@@ -11,40 +11,48 @@ def home():
     st.header("Making Christmas More Merry Since 1947!")
     #Can probably add more to this page
 
-# def db_submit_donation(): #code for sending donation info to db
-    
-
-
+def db_submit_donation(donor_name, monetary_donation, toy_donation): #code for sending donation info to db
+    collection_name = dbname["Donated"]
+    collection_name.insert_one({
+        "donor_name": donor_name,
+        "money_donated": monetary_donation,
+        "toys_donated": toy_donation
+    })
 
 def donations():
     st.header("Make a Donation!")
-    money_donation = st.text_input("Monetary Donation amount:")
+    donor_name = st.text_input("Enter your Full Name OR your organization's name")
+    monetary_donation = st.text_input("Monetary Donation amount:")
     toy_donation = st.text_input("Toy being donated:")
-    radioOptions = st.radio("Would you like a receipt?", options = ["No", "Yes"])
-    #if they select that they would like a receipt then get their name to put on it
-    if radioOptions == "Yes":
-         st.text_input("First Name")
-         st.text_input("Last Name")
-    st.button("Submit Donation", on_click= None)
-    #the "on_click" will be the code to send to DB, 
-    #create function and call here
 
-def db_submit_request(parent_name, child_name, toy_requested, child_age): #code for sending request info to db
+    #Will probably remove this option, unless we have time to implement it at the end
+    ###radioOptions = st.radio("Would you like a receipt?", options = ["No", "Yes"])
+    ####if they select that they would like a reciept then get their name to put on it
+    ###if radioOptions == "Yes":
+    ###     code to create a receipt will go here
+
+
+    st.button("Submit Donation", on_click= db_submit_donation(donor_name, monetary_donation, toy_donation))
+    #the "on_click" will be the code to create an instance of the Sponsors Class
+    # and send it's attributes to the DB, 
+    #create function and call in the on_Click
+
+def db_submit_request(parent_name, child_name, child_age, toy_requested): #code for sending request info to db
     collection_name = dbname["Requested"]
-    collection_name.insert_many([{
+    collection_name.insert_one({
         "parent_name": parent_name,
         "child_name": child_name,
         "child_age": child_age,
         "toy_requested": toy_requested
-    }])
+    })
 
 def makeReq():
     st.header("Request a Donation!")
     parent_name = st.text_input("What is your first and last name?")
     child_name = st.text_input("What is the child's first and last name?")
-    child_age = st.text_input("How old is the child the request is for?")
+    child_age = st.text_input("How old is the child?")
     toy_requested = st.text_input("What toy are you requesting?")
-    st.button("Submit Donation Request", on_click= None) 
+    st.button("Submit Donation Request", on_click= db_submit_request(parent_name, child_name, child_age, toy_requested)) 
         #the "on_click" will be the code to send to DB, 
         #create function and call here
         #need to add code to button to have it send the entered info to the MongoDB database
