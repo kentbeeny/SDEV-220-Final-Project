@@ -24,6 +24,7 @@ def donations():
     donor_name = st.text_input("Enter your Full Name OR your organization's name")
     monetary_donation = st.text_input("Monetary Donation amount:")
     toy_donation = st.text_input("Toy being donated:")
+    
 
     #Will probably remove this option, unless we have time to implement it at the end
     ###radioOptions = st.radio("Would you like a receipt?", options = ["No", "Yes"])
@@ -31,8 +32,10 @@ def donations():
     ###if radioOptions == "Yes":
     ###     code to create a receipt will go here
 
-
-    st.button("Submit Donation", on_click= db_submit_donation(donor_name, monetary_donation, toy_donation))
+    if st.button("Submit Donation"):
+        db_submit_donation(donor_name, monetary_donation, toy_donation)
+        st.session_state.submitted = True
+        st.success("Donation submitted! Thank you for your generosity!")
 
 def db_submit_request(parent_name, child_name, child_age, toy_requested): #code for sending request info to db
     collection_name = dbname["Requested"]
@@ -42,14 +45,21 @@ def db_submit_request(parent_name, child_name, child_age, toy_requested): #code 
         "child_age": child_age,
         "toy_requested": toy_requested
     })
+    st.session_state.submitted = True
+
 
 def makeReq():
     st.header("Request a Donation!")
+
     parent_name = st.text_input("What is your first and last name?")
     child_name = st.text_input("What is the child's first and last name?")
     child_age = st.text_input("How old is the child?")
     toy_requested = st.text_input("What toy are you requesting?")
-    st.button("Submit Donation Request", on_click = db_submit_request(parent_name, child_name, child_age, toy_requested))
+
+    if st.button("Submit Donation Request"):
+        db_submit_request(parent_name, child_name, child_age, toy_requested)
+        st.session_state.submitted = True
+        st.success("Request submitted!")
         # ref https://docs.streamlit.io/library/api-reference/widgets/st.button
 
 @st.cache_data(ttl=600)
