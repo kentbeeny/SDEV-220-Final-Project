@@ -1,3 +1,10 @@
+from getDb import get_database
+
+dbname = get_database()
+
+# for item in items:
+    # st.write(f"{item}")
+
 class Kids:
     def __init__(self, kidName, toy, age):
         self.name = kidName

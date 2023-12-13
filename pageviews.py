@@ -32,7 +32,6 @@ def donations():
     ###if radioOptions == "Yes":
     ###     code to create a receipt will go here
 
-
     if st.button("Submit Donation"):
         db_submit_donation(donor_name, monetary_donation, toy_donation)
         st.session_state.submitted = True
@@ -56,7 +55,7 @@ def makeReq():
     child_name = st.text_input("What is the child's first and last name?")
     child_age = st.text_input("How old is the child?")
     toy_requested = st.text_input("What toy are you requesting?")
-    
+
     if st.button("Submit Donation Request"):
         db_submit_request(parent_name, child_name, child_age, toy_requested)
         st.session_state.submitted = True
@@ -69,8 +68,8 @@ def seeReq():
     items = dbname.Requested.find()
     items == list(items)
     # return items
-    for item in items:
-        st.write(f"{item}")
+    # for item in items:
+        # st.write(f"{item}")
     #Insert code to display all the toys requested and the ages of the kids requesting them
     #Maybe use selectbox?
     # ref https://docs.streamlit.io/library/api-reference/widgets/st.selectbox
