@@ -1,6 +1,5 @@
-import streamlit as st #importing streamlit
+import streamlit as st
 from getDb import get_database #importing database connection function
-import NewClasses as cls #import new classes
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #These functions will set the views for each of the options selectable from the sidebar
@@ -8,10 +7,7 @@ import NewClasses as cls #import new classes
 
 dbname=get_database()
 
-
-
 def home():
-    st.image('toysfortots3.jpg') # place the toysfortots logo on the page
     st.header("Making Christmas More Merry Since 1947!")
     #Can probably add more to this page
 
@@ -24,13 +20,11 @@ def db_submit_donation(donor_name, monetary_donation, toy_donation): #code for s
     })
 
 def donations():
-    st.image('toysfortots3.jpg') # place the toysfortots logo on the page
     st.header("Make a Donation!")
     donor_name = st.text_input("Enter your Full Name OR your organization's name")
     monetary_donation = st.text_input("Monetary Donation amount:")
     toy_donation = st.text_input("Toy being donated:")
     
-
     #Will probably remove this option, unless we have time to implement it at the end
     ###radioOptions = st.radio("Would you like a receipt?", options = ["No", "Yes"])
     ####if they select that they would like a reciept then get their name to put on it
@@ -54,31 +48,26 @@ def db_submit_request(parent_name, child_name, child_age, toy_requested): #code 
 
 
 def makeReq():
-    st.image('toysfortots3.jpg') # place the toysfortots logo on the page
     st.header("Request a Donation!")
 
     parent_name = st.text_input("What is your first and last name?")
     child_name = st.text_input("What is the child's first and last name?")
     child_age = st.text_input("How old is the child?")
     toy_requested = st.text_input("What toy are you requesting?")
-
+    
     if st.button("Submit Donation Request"):
         db_submit_request(parent_name, child_name, child_age, toy_requested)
         st.session_state.submitted = True
         st.success("Request submitted!")
         # ref https://docs.streamlit.io/library/api-reference/widgets/st.button
 
-@st.cache_data(ttl=600)
+
+@st.cache_data(ttl=600) # Annotation to refresh the data every 5 minutes
 def seeReq():
-    st.header("Requested Toys:")
-    items = dbname.Requested.find()
-    items == list(items)
-    # return items
-    # for item in items:
-        # st.write(f"{item}")
-    #Insert code to display all the toys requested and the ages of the kids requesting them
-    #Maybe use selectbox?
-    # ref https://docs.streamlit.io/library/api-reference/widgets/st.selectbox
+    st.header("See requested Toys!")
+    collection_name = dbname["Requested"]
+    collection_name.find()
+# ref https://docs.streamlit.io/library/api-reference/widgets/st.selectbox
 
 
 
