@@ -1,6 +1,6 @@
 import streamlit as st #importing streamlit
 from getDb import get_database #importing database connection function
-import NewClasses as cls
+import NewClasses as cls #import new classes
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #These functions will set the views for each of the options selectable from the sidebar
