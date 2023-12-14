@@ -61,6 +61,12 @@ def makeReq():
         st.success("Request submitted!")
         # ref https://docs.streamlit.io/library/api-reference/widgets/st.button
 
+
+@st.cache_data(ttl=600) # Annotation to refresh the data every 5 minutes
+def seeReq():
+    st.header("See requested Toys!")
+    collection_name = dbname["Requested"]
+    collection_name.find()
 # ref https://docs.streamlit.io/library/api-reference/widgets/st.selectbox
 
 
