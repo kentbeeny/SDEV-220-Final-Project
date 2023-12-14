@@ -62,11 +62,7 @@ def makeReq():
         st.session_state.submitted = True
         st.success("Request submitted!")
         # ref https://docs.streamlit.io/library/api-reference/widgets/st.button
-
-# @st.cache_data(ttl=600)
-
-    #Insert code to display all the toys requested and the ages of the kids requesting them
-    #Maybe use selectbox?
+        
     # ref https://docs.streamlit.io/library/api-reference/widgets/st.selectbox
 
 

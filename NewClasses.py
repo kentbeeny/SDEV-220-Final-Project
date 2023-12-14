@@ -6,7 +6,7 @@ dbname = get_database()
 class Kids:
     def __init__(self, parentName, kidName, toy, age):
         self.parentName = parentName
-        self.name = kidName
+        self.kidName = kidName
         self.age = age
         self.toy = toy
 
@@ -23,7 +23,7 @@ kid_list.append(Kids('parent3','kidName2', 'Books', 5))
 kid_list.append(Kids('parent3','kidName3','Stuffed Animals', 3))
 
 # Accessing object value using a for loop
-@st.cache_data(ttl=600)
+@st.cache_data(ttl=600) # Annotation to refresh the data every 5 minutes
 def seeReq(parentName, kidName, age, toy):
     for req in kid_list:
         collection_name = dbname["Requested"]
