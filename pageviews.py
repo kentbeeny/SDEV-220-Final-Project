@@ -25,13 +25,11 @@ def donations():
     monetary_donation = st.text_input("Monetary Donation amount:")
     toy_donation = st.text_input("Toy being donated:")
     
-
     #Will probably remove this option, unless we have time to implement it at the end
     ###radioOptions = st.radio("Would you like a receipt?", options = ["No", "Yes"])
     ####if they select that they would like a reciept then get their name to put on it
     ###if radioOptions == "Yes":
     ###     code to create a receipt will go here
-
 
     if st.button("Submit Donation"):
         db_submit_donation(donor_name, monetary_donation, toy_donation)

@@ -12,6 +12,7 @@
 import streamlit as st
 import pageviews as view
 import NewClasses as classes
+from NewClasses import kid_list
 from NewClasses import Kids
 
 st.title("Toys for Tots!")
@@ -30,4 +31,4 @@ elif options == 'Make Donation':
 elif options == 'Request Donation':
     view.makeReq()
 elif options == 'See Requested Donations':
-    classes.seeReq(Kids.parentName, Kids.name, Kids.age, Kids.toy)
+    classes.seeReq(Kids.parentName, Kids.kidName, Kids.age, Kids.toy)

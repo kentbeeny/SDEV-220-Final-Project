@@ -22,20 +22,21 @@ kid_list.append(Kids('parent3','kidName1', 'Headphones', 8))
 kid_list.append(Kids('parent3','kidName2', 'Books', 5))
 kid_list.append(Kids('parent3','kidName3','Stuffed Animals', 3))
 
+for obj in kid_list:
+    collection_name = dbname["Requested"]
+    collection_name.insert_one({
+        "parent_name": obj.parentName,
+        "child_name": obj.kidName,
+        "child_age": obj.age,
+        "toy_requested": obj.toy
+    })
+
 # Accessing object value using a for loop
 @st.cache_data(ttl=600) # Annotation to refresh the data every 5 minutes
-def seeReq(parentName, kidName, age, toy):
-    for req in kid_list:
-        collection_name = dbname["Requested"]
-        collection_name.insert_one({
-            "parent_name": parentName,
-            "child_name": kidName,
-            "child_age": age,
-            "toy_requested": toy
-        })
+def seeReq():
     collection_name.find()
 
-print("")
+# print("")
 
 class Sponsors:
     def __init__(self, moneyAmount, toy, flName):
