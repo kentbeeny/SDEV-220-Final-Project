@@ -1,5 +1,6 @@
-import streamlit as st
+import streamlit as st #importing streamlit
 from getDb import get_database #importing database connection function
+import NewClasses as cls
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #These functions will set the views for each of the options selectable from the sidebar
@@ -7,7 +8,10 @@ from getDb import get_database #importing database connection function
 
 dbname=get_database()
 
+
+
 def home():
+    st.image('toysfortots3.jpg') # place the toysfortots logo on the page
     st.header("Making Christmas More Merry Since 1947!")
     #Can probably add more to this page
 
@@ -20,6 +24,7 @@ def db_submit_donation(donor_name, monetary_donation, toy_donation): #code for s
     })
 
 def donations():
+    st.image('toysfortots3.jpg') # place the toysfortots logo on the page
     st.header("Make a Donation!")
     donor_name = st.text_input("Enter your Full Name OR your organization's name")
     monetary_donation = st.text_input("Monetary Donation amount:")
@@ -49,6 +54,7 @@ def db_submit_request(parent_name, child_name, child_age, toy_requested): #code 
 
 
 def makeReq():
+    st.image('toysfortots3.jpg') # place the toysfortots logo on the page
     st.header("Request a Donation!")
 
     parent_name = st.text_input("What is your first and last name?")

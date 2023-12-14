@@ -5,8 +5,10 @@
 #https://www.youtube.com/watch?v=sogNluduBQQ
 #https://www.youtube.com/watch?v=Loxhpjho5h4
 
-#to run app, navigate to the directory containing the app and run "streamlit run app.py"
+#will need to run "pip install pymongo" in command line
 #may need to install Streamlit before running using "pip install streamlit" command
+#to run app, navigate to the directory containing the app and run "streamlit run app.py"
+
 import streamlit as st
 import pageviews as view
 

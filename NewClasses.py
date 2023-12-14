@@ -25,7 +25,10 @@ list.append(Kids('kidName','Stuffed Animals', 3))
 
 # Accessing object value using a for loop
 for obj in list:
-    print(obj.kidName, obj.toy, obj.age, sep=' ')
+    #print(obj.kidName, obj.toy, obj.age, sep=' ')
+    #changing the above to test ##########################################
+    #the below fixed the error-> 'Kids' object has no attribute 'kidName'"
+    print(obj.name, obj.toy, obj.age, sep=' ')
 
 print("")
 
