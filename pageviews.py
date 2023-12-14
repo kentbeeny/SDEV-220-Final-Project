@@ -68,7 +68,7 @@ def seeReq():
     collection_name = dbname["Requested"]
     reqList = list(collection_name.find())
     for item in reqList:
-        st.text_input(item)
+        print(item)
 # ref https://docs.streamlit.io/library/api-reference/widgets/st.selectbox
 
 
