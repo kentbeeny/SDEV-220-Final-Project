@@ -66,7 +66,9 @@ def makeReq():
 def seeReq():
     st.header("See What's Been Requested!")
     collection_name = dbname["Requested"]
-    collection_name.find()
+    reqList = list(collection_name.find())
+    for item in reqList:
+        st.text_input(item)
 # ref https://docs.streamlit.io/library/api-reference/widgets/st.selectbox
 
 
