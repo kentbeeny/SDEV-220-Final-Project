@@ -4,7 +4,7 @@ ca=certifi.where()
 
 def get_database():
     CONNECTION_STRING = "mongodb+srv://ahask93:finalproject@cluster1.itmbuuh.mongodb.net/"
-    client = MongoClient(CONNECTION_STRING, tlsCAFile=ca)
+    client = MongoClient(CONNECTION_STRING, tlsCAFile=ca, connect=False))
 
     return client['TFT']
 
