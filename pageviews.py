@@ -72,7 +72,7 @@ def seeReq():
     collection_name = dbname["Requested"]
     reqList = list(collection_name.find())
     for item in reqList:
-        st.write(item)
+        st.write(item["toy_requested"])
 # ref https://docs.streamlit.io/library/api-reference/widgets/st.selectbox
 
 
