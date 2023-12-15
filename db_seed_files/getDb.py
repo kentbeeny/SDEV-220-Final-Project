@@ -1,4 +1,6 @@
 from pymongo import MongoClient
+import certifi
+ca=certifi.where()
 
 def get_database():
     CONNECTION_STRING = "mongodb+srv://ahask93:finalproject@cluster1.itmbuuh.mongodb.net/"
