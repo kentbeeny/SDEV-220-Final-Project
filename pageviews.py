@@ -65,7 +65,7 @@ def makeReq():
         # ref https://docs.streamlit.io/library/api-reference/widgets/st.button
 
 
-@st.cache_data(ttl=120) # Annotation to refresh the data every 5 minutes
+@st.cache_data(ttl=6) # Annotation to refresh the data every 5 minutes
 def seeReq():
     st.image('toysfortots3.jpg') # place the toysfortots logo on the page
     st.header("See What's Been Requested!")
